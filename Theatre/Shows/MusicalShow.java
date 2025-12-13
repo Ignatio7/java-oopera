@@ -1,3 +1,7 @@
+package Shows;
+
+import People.Director;
+
 public class MusicalShow extends Show {
     protected String musicAuthor;
     protected String librettoText;
@@ -10,7 +14,7 @@ public class MusicalShow extends Show {
     }
 
     public void printLibretto() {
-        System.out.println("Libretto of \"" + title + "\":");
-        System.out.println(librettoText + "\n");
+        System.out.println("\nЛибретто спектакля \"" + title + "\":");
+        System.out.println(librettoText);
     }
 }

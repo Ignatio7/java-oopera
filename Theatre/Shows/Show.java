@@ -1,10 +1,16 @@
+package Shows;
+
+import People.Actor;
+import People.Director;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Show {
     protected String title;
     protected int duration;
     protected Director director;
-    protected ArrayList<Actor> listOfActors = new ArrayList<>();
+    protected List<Actor> listOfActors = new ArrayList<>();
 
     public Show(String title, int duration, Director director) {
         this.title = title;
@@ -13,37 +19,36 @@ public class Show {
     }
 
     public void printDirector() {
-        System.out.println(director);
+        System.out.println("Режиссёр спектакля \"" + title + "\": " + director);
     }
 
     public void printActors() {
+        System.out.println("\nАктёры спектакля \"" + title + "\":");
         if (listOfActors.isEmpty()) {
-            System.out.println("No actors in this show.");
+            System.out.println(" (актёров нет)");
             return;
         }
-        System.out.println("Actors in \"" + title + "\":");
         for (Actor actor : listOfActors) {
             System.out.println(" - " + actor);
         }
-        System.out.println();
     }
 
     public void addActor(Actor actor) {
         if (listOfActors.contains(actor)) {
-            System.out.println("Actor " + actor + " already exists in this show!");
+            System.out.println("Актёр " + actor + " уже участвует в спектакле!");
             return;
         }
         listOfActors.add(actor);
     }
 
-    public void replaceActor(String surnameToReplace, Actor newActor) {
+    public void replaceActor(String surname, Actor newActor) {
         for (int i = 0; i < listOfActors.size(); i++) {
-            if (listOfActors.get(i).surname.equals(surnameToReplace)) {
+            if (listOfActors.get(i).getSurname().equals(surname)) {
                 listOfActors.set(i, newActor);
-                System.out.println("Actor replaced.\n");
+                System.out.println("Актёр с фамилией \"" + surname + "\" заменён.");
                 return;
             }
         }
-        System.out.println("No actor with surname \"" + surnameToReplace + "\" found.\n");
+        System.out.println("Актёр с фамилией \"" + surname + "\" не найден.");
     }
 }

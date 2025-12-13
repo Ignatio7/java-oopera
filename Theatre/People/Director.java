@@ -1,5 +1,6 @@
-public class Director extends Person {
+package People;
 
+public class Director extends Person {
     private final int numberOfShows;
 
     public Director(String name, String surname, Gender gender, int numberOfShows) {
@@ -13,7 +14,7 @@ public class Director extends Person {
 
     @Override
     public String toString() {
-        return "Режиссёр: " + name + " " + surname +
-                " (поставленных спектаклей: " + getNumberOfShows() + ")";
+        return "Режиссёр: " + getName() + " " + getSurname() +
+                " (поставлено спектаклей: " + numberOfShows + ")";
     }
 }

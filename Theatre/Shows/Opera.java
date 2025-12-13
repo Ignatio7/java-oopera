@@ -1,5 +1,8 @@
-public class Opera extends MusicalShow {
+package Shows;
 
+import People.Director;
+
+public class Opera extends MusicalShow {
     private final int choirSize;
 
     public Opera(String title, int duration, Director director,
@@ -8,13 +11,8 @@ public class Opera extends MusicalShow {
         this.choirSize = choirSize;
     }
 
-    public int getChoirSize() {
-        return choirSize;
-    }
-
     @Override
     public String toString() {
-        return "Оперный спектакль: " + title +
-                " (хор: " + getChoirSize() + " человек)";
+        return "Опера: " + title + " (хор: " + choirSize + " человек)";
     }
 }

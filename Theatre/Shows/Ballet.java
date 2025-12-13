@@ -1,5 +1,8 @@
-public class Ballet extends MusicalShow {
+package Shows;
 
+import People.Director;
+
+public class Ballet extends MusicalShow {
     private final String choreographer;
 
     public Ballet(String title, int duration, Director director,
@@ -8,13 +11,8 @@ public class Ballet extends MusicalShow {
         this.choreographer = choreographer;
     }
 
-    public String getChoreographer() {
-        return choreographer;
-    }
-
     @Override
     public String toString() {
-        return "Балет: " + title +
-                " (хореограф: " + getChoreographer() + ")";
+        return "Балет: " + title + " (хореограф: " + choreographer + ")";
     }
 }

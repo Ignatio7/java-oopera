@@ -1,5 +1,9 @@
+package People;
+
+import java.util.Objects;
+
 public class Actor extends Person {
-    private final int height; // рост актёра в сантиметрах
+    private final int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
@@ -12,7 +16,7 @@ public class Actor extends Person {
 
     @Override
     public String toString() {
-        return name + " " + surname + " (" + getHeight() + " см)";
+        return getName() + " " + getSurname() + " (" + height + " см)";
     }
 
     @Override
@@ -20,12 +24,12 @@ public class Actor extends Person {
         if (this == o) return true;
         if (!(o instanceof Actor actor)) return false;
         return height == actor.height &&
-                name.equals(actor.name) &&
-                surname.equals(actor.surname);
+                Objects.equals(getName(), actor.getName()) &&
+                Objects.equals(getSurname(), actor.getSurname());
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode() + surname.hashCode() + height;
+        return Objects.hash(getName(), getSurname(), height);
     }
 }
